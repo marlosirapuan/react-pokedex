@@ -1,15 +1,27 @@
 import React from 'react'
-import { Box, Flex, Heading } from '@chakra-ui/react'
+import { useSelector } from 'react-redux'
+import { RootState } from 'store/rootReducer'
 
-import DarkModeSwitch from 'components/DarkModeSwitch'
+import { DarkModeSwitch, Drawer } from 'components'
+
+import { Box, Flex, Heading, Button, useDisclosure } from '@chakra-ui/react'
 
 const Header = (): JSX.Element => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const pokedex = useSelector((state: RootState) => state.pokedex)
+
   return (
     <Box aria-label="header">
       <Flex justifyContent="space-between" marginBottom={5}>
         <Heading>Pokedex</Heading>
         <DarkModeSwitch position="relative" />
       </Flex>
+
+      <Button size="xs" variant="solid" onClick={() => onOpen()}>
+        Meus favoritos ({pokedex.length})
+      </Button>
+
+      <Drawer isOpen={isOpen} onClose={onClose} />
     </Box>
   )
 }

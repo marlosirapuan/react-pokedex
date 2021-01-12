@@ -14,7 +14,7 @@ const SearchInput = (): JSX.Element => {
 
   return (
     <div aria-label="search">
-      <FormControl>
+      <FormControl marginBottom={5}>
         <Input
           placeholder="Entre com um Pokemon para pesquisar"
           size="lg"
