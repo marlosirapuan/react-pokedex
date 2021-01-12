@@ -5,7 +5,7 @@ import api from 'api'
 import { PokemonResults, PokemonResultItem } from 'typings'
 
 import {
-  Stack,
+  HStack,
   Skeleton,
   SimpleGrid,
   Alert,
@@ -78,11 +78,11 @@ const List = ({ filter }: ListProps): JSX.Element => {
   return (
     <>
       {loading && (
-        <Stack>
-          <Skeleton height="20px" />
-          <Skeleton height="20px" />
-          <Skeleton height="20px" />
-        </Stack>
+        <HStack spacing={5}>
+          <Skeleton height={80} width={80} />
+          <Skeleton height={80} width={80} />
+          <Skeleton height={80} width={80} />
+        </HStack>
       )}
 
       {!loading && (

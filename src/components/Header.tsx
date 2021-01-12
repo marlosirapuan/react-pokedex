@@ -5,6 +5,7 @@ import { RootState } from 'store/rootReducer'
 import { DarkModeSwitch, Drawer } from 'components'
 
 import { Box, Flex, Heading, Button, useDisclosure } from '@chakra-ui/react'
+import { AiFillStar } from 'react-icons/ai'
 
 const Header = (): JSX.Element => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -17,7 +18,12 @@ const Header = (): JSX.Element => {
         <DarkModeSwitch position="relative" />
       </Flex>
 
-      <Button size="xs" variant="solid" onClick={() => onOpen()}>
+      <Button
+        leftIcon={<AiFillStar color="orange" />}
+        size="xs"
+        variant="solid"
+        onClick={() => onOpen()}
+      >
         Meus favoritos ({pokedex.length})
       </Button>
 
