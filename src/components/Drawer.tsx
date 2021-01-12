@@ -21,6 +21,8 @@ import {
 } from '@chakra-ui/react'
 import { FiTrash2 } from 'react-icons/fi'
 
+import imageFallback from 'assets/image-not-found.png'
+
 type ModalProps = {
   isOpen: boolean
   onClose: () => void
@@ -66,7 +68,7 @@ const Drawer = ({ isOpen, onClose }: ModalProps): JSX.Element => {
                       onClick={() => handleRemoveFavorite(pokemon.name)}
                     />
                     <img
-                      src={pokemon.sprites?.front_default}
+                      src={pokemon.sprites?.front_default ?? imageFallback}
                       alt={pokemon.name}
                       title={pokemon.name}
                       width={64}

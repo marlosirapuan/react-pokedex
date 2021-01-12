@@ -9,6 +9,8 @@ import api from 'api'
 import { Box, Text, Button } from '@chakra-ui/react'
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai'
 
+import imageFallback from 'assets/image-not-found.png'
+
 type ListItemProps = {
   item: PokemonResultItem
 }
@@ -65,13 +67,12 @@ const ListItem = ({ item }: ListItemProps): JSX.Element => {
       justifyContent="center"
       minHeight={100}
       borderRadius={10}
-      borderColor="orange.200"
       borderWidth={4}
       padding={3}
     >
       <Text fontSize="lg">{pokemonListItem.name}</Text>
       <img
-        src={pokemonListItem.sprites?.front_default}
+        src={pokemonListItem.sprites?.front_default ?? imageFallback}
         alt={pokemonListItem.name}
       />
       <Button
