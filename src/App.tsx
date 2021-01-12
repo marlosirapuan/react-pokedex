@@ -5,9 +5,9 @@ import { Container, Stack } from '@chakra-ui/react'
 
 const App = (): JSX.Element => (
   <ChakraProvider>
-    <Container padding={5}>
+    <Container padding={5} aria-label="React Pokedex">
       <Stack spacing={5}>
-        <p>Chakra</p>
+        <p>Pokedex</p>
       </Stack>
     </Container>
   </ChakraProvider>

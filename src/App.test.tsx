@@ -2,8 +2,8 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import App from './App'
 
-test('render welcome text', () => {
-  const { getByText } = render(<App />)
-  const textElement = getByText(/Welcome/i)
+test('renders the app', () => {
+  const { getByLabelText } = render(<App />)
+  const textElement = getByLabelText(/react pokedex/i)
   expect(textElement).toBeInTheDocument()
 })
