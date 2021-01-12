@@ -4,6 +4,11 @@ import App from './App'
 
 test('renders the app', () => {
   const { getByLabelText } = render(<App />)
-  const textElement = getByLabelText(/react pokedex/i)
-  expect(textElement).toBeInTheDocument()
+  const containerAppElement = getByLabelText(/container/i)
+  const containerHeaderElement = getByLabelText(/header/i)
+  const containerSearchElement = getByLabelText(/search/i)
+
+  expect(containerAppElement).toBeInTheDocument()
+  expect(containerHeaderElement).toBeInTheDocument()
+  expect(containerSearchElement).toBeInTheDocument()
 })
