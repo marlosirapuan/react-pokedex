@@ -69,6 +69,7 @@ const ListItem = ({ item }: ListItemProps): JSX.Element => {
       borderRadius={10}
       borderWidth={4}
       padding={3}
+      aria-label="list item"
     >
       <Text fontSize="lg">{pokemonListItem.name}</Text>
       <img

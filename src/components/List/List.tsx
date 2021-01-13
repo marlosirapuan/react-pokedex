@@ -76,7 +76,7 @@ const List = ({ filter }: ListProps): JSX.Element => {
   }, [error, toast])
 
   return (
-    <>
+    <div aria-label="list">
       {loading && (
         <HStack spacing={5}>
           <Skeleton height={80} width={80} />
@@ -103,7 +103,7 @@ const List = ({ filter }: ListProps): JSX.Element => {
           )}
         </>
       )}
-    </>
+    </div>
   )
 }
 
