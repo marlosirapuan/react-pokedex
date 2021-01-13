@@ -29,6 +29,7 @@ const List = ({ filter }: ListProps): JSX.Element => {
   )
 
   const toast = useToast()
+  const columns = useBreakpointValue({ base: 2, md: 3 })
 
   const fetchPokemons = async (): Promise<void> => {
     try {
@@ -54,8 +55,6 @@ const List = ({ filter }: ListProps): JSX.Element => {
       }) || []
     )
   }, [filter, pokemonResult.results])
-
-  const columns = useBreakpointValue({ base: 2, md: 3 })
 
   useEffect(() => {
     fetchPokemons()

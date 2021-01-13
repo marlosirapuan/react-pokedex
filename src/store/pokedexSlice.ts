@@ -22,7 +22,18 @@ const pokedexSlice = createSlice({
 export const add = (pokemon: Pokemon): AppThunk => async (
   dispatch: AppDispatch
 ) => {
-  dispatch(pokedexSlice.actions.add(pokemon))
+  const { name, abilities, sprites, stats, types, weight, order } = pokemon
+  const newPokemon = {
+    name,
+    abilities,
+    sprites,
+    stats,
+    types,
+    weight,
+    order
+  } as Pokemon
+
+  dispatch(pokedexSlice.actions.add(newPokemon))
 }
 
 export const remove = (name: string): AppThunk => async (
