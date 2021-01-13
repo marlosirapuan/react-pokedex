@@ -23,12 +23,12 @@ import { FiTrash2 } from 'react-icons/fi'
 
 import imageFallback from 'assets/image-not-found.png'
 
-type ModalProps = {
+type DrawerProps = {
   isOpen: boolean
   onClose: () => void
 }
 
-const Drawer = ({ isOpen, onClose }: ModalProps): JSX.Element => {
+const Drawer = ({ isOpen, onClose }: DrawerProps): JSX.Element => {
   const dispatch = useDispatch()
   const pokedex = useSelector((state: RootState) => state.pokedex)
 

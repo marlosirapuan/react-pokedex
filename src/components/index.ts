@@ -4,3 +4,4 @@ export { default as List } from './List/List'
 
 export { default as DarkModeSwitch } from './DarkModeSwitch'
 export { default as Drawer } from './Drawer'
+export { default as Modal } from './Modal'

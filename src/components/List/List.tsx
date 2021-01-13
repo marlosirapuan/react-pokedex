@@ -1,8 +1,11 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useRef, useState, useEffect, useMemo } from 'react'
 
 import ListItem from './ListItem'
 import api from 'api'
 import { PokemonResults, PokemonResultItem } from 'typings'
+
+import { Modal } from 'components'
+import { ModalHandler } from 'components/Modal'
 
 import {
   HStack,
@@ -30,6 +33,8 @@ const List = ({ filter }: ListProps): JSX.Element => {
 
   const toast = useToast()
   const columns = useBreakpointValue({ base: 2, md: 3 })
+
+  const modalRef = useRef<ModalHandler>(null)
 
   const fetchPokemons = async (): Promise<void> => {
     try {
@@ -90,7 +95,9 @@ const List = ({ filter }: ListProps): JSX.Element => {
             {pokemonResultsMemo
               .slice(0, LIMIT_PER_PAGE)
               .map((item: PokemonResultItem) => {
-                return <ListItem key={item.name} item={item} />
+                return (
+                  <ListItem key={item.name} item={item} modalRef={modalRef} />
+                )
               })}
           </SimpleGrid>
 
@@ -102,6 +109,8 @@ const List = ({ filter }: ListProps): JSX.Element => {
           )}
         </>
       )}
+
+      <Modal ref={modalRef} />
     </div>
   )
 }

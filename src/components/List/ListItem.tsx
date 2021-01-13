@@ -6,6 +6,8 @@ import { add, remove } from 'store/pokedexSlice'
 import { PokemonResultItem, Pokemon } from 'typings'
 import api from 'api'
 
+import { ModalHandler } from 'components/Modal'
+
 import { Box, Text, Button } from '@chakra-ui/react'
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai'
 
@@ -13,9 +15,10 @@ import imageFallback from 'assets/image-not-found.png'
 
 type ListItemProps = {
   item: PokemonResultItem
+  modalRef?: React.RefObject<ModalHandler>
 }
 
-const ListItem = ({ item }: ListItemProps): JSX.Element => {
+const ListItem = ({ item, modalRef }: ListItemProps): JSX.Element => {
   const dispatch = useDispatch()
   const pokedex = useSelector((state: RootState) => state.pokedex)
 
@@ -61,6 +64,7 @@ const ListItem = ({ item }: ListItemProps): JSX.Element => {
   return (
     <Box
       key={pokemonListItem.name}
+      aria-label="list item"
       display="flex"
       flexDirection="column"
       alignItems="center"
@@ -69,7 +73,11 @@ const ListItem = ({ item }: ListItemProps): JSX.Element => {
       borderRadius={10}
       borderWidth={4}
       padding={3}
-      aria-label="list item"
+      bgGradient="linear(to-r, gray.100,blue.100)"
+      _hover={{
+        bgGradient: 'linear(to-t, gray.200,blue.300)'
+      }}
+      color="black"
     >
       <Text fontSize="lg">{pokemonListItem.name}</Text>
       <img
@@ -89,7 +97,20 @@ const ListItem = ({ item }: ListItemProps): JSX.Element => {
           <AiOutlineStar color="orange" size={32} />
         )}
       </Button>
-      <Button variant="ghost">Detalhar</Button>
+      <Button
+        bgGradient="linear(to-t, blue.200,gray.100)"
+        _hover={{
+          bgGradient: 'linear(to-t, gray.100,blue.200)'
+        }}
+        size="sm"
+        onClick={() => {
+          if (modalRef) {
+            modalRef.current?.openModal(pokemonListItem)
+          }
+        }}
+      >
+        Detalhar
+      </Button>
     </Box>
   )
 }
