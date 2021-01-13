@@ -1,12 +1,19 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { shallow } from 'enzyme'
 
 import Modal from '../Modal'
 
-test('renders the component', () => {
-  const { getByLabelText } = render(<Modal />)
+describe('Modal component', () => {
+  it('should be able to render', () => {
+    const modalComponent = shallow(<Modal />)
+    expect(modalComponent).toMatchSnapshot()
+  })
 
-  const modalElement = getByLabelText(/modal/i)
-
-  expect(modalElement).toBeInTheDocument()
+  it('should be able to change prop title', () => {
+    const props = {
+      title: 'test'
+    }
+    const modalComponent = shallow(<Modal {...props} />).find('ModalHeader')
+    expect(modalComponent.props().children).toEqual('test')
+  })
 })

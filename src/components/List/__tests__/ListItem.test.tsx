@@ -1,24 +1,40 @@
 import React from 'react'
-import { render } from '@testing-library/react'
-import { Provider } from 'react-redux'
+import { shallow } from 'enzyme'
 
+import { Provider } from 'react-redux'
 import store from 'store/store'
 
 import ListItem from '../ListItem'
 
-test('renders the component', () => {
-  const item = {
-    name: 'Pokemon',
-    url: 'http://www.image.com/image.png'
-  }
+describe('ListItem component', () => {
+  it('should be able to render', () => {
+    const item = {
+      name: 'Pokemon',
+      url: 'http://www.image.com/image.png'
+    }
 
-  const { getByLabelText } = render(
-    <Provider store={store}>
-      <ListItem item={item} />
-    </Provider>
-  )
+    const listItemComponent = shallow(
+      <Provider store={store}>
+        <ListItem item={item} />
+      </Provider>
+    )
+    expect(listItemComponent).toMatchSnapshot()
+  })
 
-  const listElement = getByLabelText(/list item/i)
+  it('should be able to change prop title', () => {
+    const item = {
+      name: 'Pokemon',
+      url: 'http://www.image.com/image.png'
+    }
 
-  expect(listElement).toBeInTheDocument()
+    const listItemComponent = shallow(
+      <Provider store={store}>
+        <ListItem item={item} />
+      </Provider>
+    ).find('ListItem')
+
+    expect(listItemComponent.props()).toEqual({
+      item: { name: 'Pokemon', url: 'http://www.image.com/image.png' }
+    })
+  })
 })

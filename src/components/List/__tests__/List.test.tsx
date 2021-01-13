@@ -1,12 +1,11 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { shallow } from 'enzyme'
 
 import List from '../List'
 
-test('renders the component', () => {
-  const { getByLabelText } = render(<List />)
-
-  const listElement = getByLabelText(/list/i)
-
-  expect(listElement).toBeInTheDocument()
+describe('List component', () => {
+  it('should be able to render', () => {
+    const listComponent = shallow(<List />)
+    expect(listComponent).toMatchSnapshot()
+  })
 })
