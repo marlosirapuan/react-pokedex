@@ -6,7 +6,7 @@ Simple control to list, search, add and remove Pokemons into your Pokedex.
 - [Chakra](https://chakra-ui.com/) [layout]
 - [Redux Toolkit](https://redux-toolkit.js.org/) [state management]
 - [Axios](https://github.com/axios/axios) [request]
-- [Jest](https://jestjs.io/) [testing]
+- [Jest](https://jestjs.io/) / [Enzyme](https://enzymejs.github.io/enzyme/) [testing]
 - [Typescript with Standard](https://github.com/marlosirapuan/cra-template-typescript-standard-prettier) [cra template]
 - [PokeAPI](https://pokeapi.co/api/v2)
 
