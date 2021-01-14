@@ -2,6 +2,8 @@
 
 Simple control to list, search, add and remove Pokemons into your Pokedex.
 
+![Screenshot](screenshot.png)
+
 ## Stack
 - [Chakra](https://chakra-ui.com/) [layout]
 - [Redux Toolkit](https://redux-toolkit.js.org/) [state management]
