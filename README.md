@@ -1,7 +1,7 @@
 # React Pokedex
 [![Netlify Status](https://api.netlify.com/api/v1/badges/24a56b92-bb25-4a8c-9175-053478dbff29/deploy-status)](https://app.netlify.com/sites/react-pokedex-typescript/deploys)
 
-Simple control to list, search, add and remove Pokemons into your Pokedex.
+Simple control to list, search, add and remove Pokemons into your Pokedex: https://react-pokedex-typescript.netlify.app
 
 ![Screenshot](screenshot.png)
 
